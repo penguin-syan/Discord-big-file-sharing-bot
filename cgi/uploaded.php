@@ -1,3 +1,4 @@
+<?php
 if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
    $upload_file = date("Ymd-His").$_FILES['upfile']['name'];
    if (move_uploaded_file ($_FILES["upfile"]["tmp_name"], "../files/".$upload_file)) {
