@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 
 <html>
-   <form method="POST" enctype="multipart/form-data" action="index.php">
-      <input type="file" name="upload_file" size="30" id="upload_file">
-      <input type="submit" name="upload_submit" value="追加">   
+   <form action="uploaded.php" method="post" enctype="multipart/form-data">
+     <input type="file" name="fname">
+     <input type="submit" value="アップロード">
    </form>
 </html>
