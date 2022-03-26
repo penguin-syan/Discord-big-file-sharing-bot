@@ -21,4 +21,4 @@ require_once '../vendor/autoload.php';
 //     echo "Not verified";
 // }
 
-http_response_code(401);
+http_response_code(300);
