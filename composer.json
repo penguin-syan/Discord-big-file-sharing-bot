@@ -1,0 +1,11 @@
+{
+    "require": {
+        "discord/interactions": "^2.2",
+        "simplito/elliptic-php": "^1.0"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4.27"
+        }
+    }
+}
