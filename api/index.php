@@ -15,13 +15,15 @@ if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY
     switch ($data['data']['name']) {
     case 'ulfile':
         header("Content-Type: application/json");
-        $returnArray = json_encode(array(
+        $returnArray = json_encode((array(
             'type' => InteractionResponseType::CHANNEL_MESSAGE_WITH_SOURCE,
             'data' => array(
                 'content' => "bbb"
             )
-        ));
+        )), JSON_UNESCAPED_UNICODE);
+
         echo $returnArray;
+
         break;
     default:
         echo json_encode(array(
