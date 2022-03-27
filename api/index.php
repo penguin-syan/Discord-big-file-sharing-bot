@@ -23,6 +23,7 @@ $fp = fopen($filename, 'w');
 foreach($data as $key => $value){
   fwrite($fp, $key.":".$value.",".PHP_EOL);
 }
+fwrite($fp, $data['data']['name'].PHP_EOL);
 fclose($fp);
 
 
