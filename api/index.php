@@ -20,7 +20,7 @@ if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY
             'type' => InteractionResponseType::CHANNEL_MESSAGE_WITH_SOURCE,
             'data' => array(
                 //'content' => $data['token']." / ".$data['id']
-                'content' => $_SERVER['HOSTNAME']
+                'content' => gethostname()
             )
         )), JSON_UNESCAPED_UNICODE);
 
