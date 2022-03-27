@@ -11,7 +11,7 @@ $signature = $_SERVER['HTTP_X_SIGNATURE_ED25519'];
 $timestamp = $_SERVER['HTTP_X_SIGNATURE_TIMESTAMP'];
 $postData = file_get_contents('php://input');
 
-$filename = 'files/dump.tmp';
+$filename = './files/dump.tmp';
 $fp = fopen($filename, 'w');
 fwrite($fp, $postData);
 fclose($fp);
