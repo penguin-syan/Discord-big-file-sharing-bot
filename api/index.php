@@ -10,6 +10,7 @@ $CLIENT_PUBLIC_KEY = "b217aaa27cdd602ecebf5fb8d690dc9df199b8a8d54d125754465ebdc9
 $signature = $_SERVER['HTTP_X_SIGNATURE_ED25519'];
 $timestamp = $_SERVER['HTTP_X_SIGNATURE_TIMESTAMP'];
 $postData = file_get_contents('php://input');
+$data = json_decode($postData, true);
 
 if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY)) {
     switch ($data['data']['name']) {
@@ -18,7 +19,7 @@ if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY
         $returnArray = json_encode((array(
             'type' => InteractionResponseType::CHANNEL_MESSAGE_WITH_SOURCE,
             'data' => array(
-                'content' => "bbb"
+                'content' => $data['token']." / ".$data['id']
             )
         )), JSON_UNESCAPED_UNICODE);
 
