@@ -34,6 +34,7 @@ if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY
         $returnArray = json_encode(array(
             "http" => array(
                 "method" => "POST",
+                "header" => "Content-Type: application/json",
                 "content" => array(
                     "type" => InteractionResponseType::CHANNEL_MESSAGE_WITH_SOURCE,
                     "data" => array(
