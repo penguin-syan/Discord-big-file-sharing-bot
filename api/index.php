@@ -19,7 +19,8 @@ if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY
         $returnArray = json_encode((array(
             'type' => InteractionResponseType::CHANNEL_MESSAGE_WITH_SOURCE,
             'data' => array(
-                'content' => $data['token']." / ".$data['id']
+                //'content' => $data['token']." / ".$data['id']
+                'content' => gethostname()
             )
         )), JSON_UNESCAPED_UNICODE);
 
