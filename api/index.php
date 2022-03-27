@@ -23,7 +23,6 @@ fclose($fp);
 if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY)) {
     switch ($data['data']['name']) {
     case 'ulfile':
-        file_put_contents("./tmp", "ulfile()");
         header("Content-Type: application/json");
         $returnArray = json_encode((array(
             'type' => InteractionResponseType::CHANNEL_MESSAGE_WITH_SOURCE,
@@ -31,19 +30,6 @@ if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY
                 'content' => "aaaaa"
             )
         )), JSON_UNESCAPED_UNICODE);
-
-        // $returnArray = json_encode(array(
-        //     "http" => array(
-        //         "method" => "POST",
-        //         "header" => "Content-Type: application/json",
-        //         "content" => array(
-        //             "type" => InteractionResponseType::CHANNEL_MESSAGE_WITH_SOURCE,
-        //             "data" => array(
-        //                 "content" => "aaa"
-        //             )
-        //         )
-        //     )
-        // ));
 
         echo $returnArray;
 
