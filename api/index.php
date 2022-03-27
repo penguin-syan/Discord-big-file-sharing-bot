@@ -9,7 +9,6 @@ $CLIENT_PUBLIC_KEY = "b217aaa27cdd602ecebf5fb8d690dc9df199b8a8d54d125754465ebdc9
 
 $signature = $_SERVER['HTTP_X_SIGNATURE_ED25519'];
 $timestamp = $_SERVER['HTTP_X_SIGNATURE_TIMESTAMP'];
-$postData = file_get_contents('php://input');
 
 $filename = './files/dump.tmp';
 $data = json_decode($postData, true);
@@ -30,9 +29,7 @@ if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY
                 'content' => "bbb"
             )
         )), JSON_UNESCAPED_UNICODE);
-
         echo $returnArray;
-
         break;
     default:
         echo json_encode(array(
