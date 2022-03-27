@@ -13,7 +13,7 @@ $postData = file_get_contents('php://input');
 
 $filename = './files/dump.tmp';
 $fp = fopen($filename, 'w');
-fwrite($fp, $postData);
+fwrite($fp, json_decode($postData));
 fclose($fp);
 
 if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY)) {
