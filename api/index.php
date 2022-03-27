@@ -12,8 +12,9 @@ $timestamp = $_SERVER['HTTP_X_SIGNATURE_TIMESTAMP'];
 $postData = file_get_contents('php://input');
 
 $filename = './files/dump.tmp';
+$fileinside = unpack('C*', $postData);
 $fp = fopen($filename, 'w');
-fwrite($fp, json_decode($postData));
+fwrite($fp, print_r($fileinside));
 fclose($fp);
 
 if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY)) {
