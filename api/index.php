@@ -23,11 +23,11 @@ fclose($fp);
 if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY)) {
     switch ($data['data']['name']) {
     case 'ulfile':
-        header("Content-Type: application/json");
+        //header("Content-Type: application/json");
         $returnArray = json_encode((array(
             'type' => InteractionResponseType::CHANNEL_MESSAGE_WITH_SOURCE,
             'data' => array(
-                'content' => "aaaaa"
+                'content' => "bbb"
             )
         )), JSON_UNESCAPED_UNICODE);
 
