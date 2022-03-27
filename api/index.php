@@ -19,9 +19,9 @@ $filename = './files/dump.tmp';
 
 
 $data = json_decode($postData, true);
-$fp = fopen($filename, 'a');
+$fp = fopen($filename, 'w');
 foreach($data as $key => $value){
-  fwrite($fp, $key.":".$value.",");
+  fwrite($fp, $key.":".$value.",".PHP_EOL);
 }
 fclose($fp);
 
