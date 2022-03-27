@@ -30,7 +30,7 @@ if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY
             'data' => array(
                 'content' => "aaaaa"
             )
-        )));
+        )), JSON_UNESCAPED_UNICODE);
 
         // $returnArray = json_encode(array(
         //     "http" => array(
