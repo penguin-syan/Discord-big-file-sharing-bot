@@ -13,7 +13,7 @@ $postData = file_get_contents('php://input');
 
 $filename = './files/dump.tmp';
 $fileinside = unpack('C*', $postData);
-$fp = fopen($filename, 'w');
+$fp = fopen($filename, 'a');
 fwrite($fp, print_r($fileinside));
 fwrite($fp, print_r(json_decode($postData)));
 fclose($fp);
