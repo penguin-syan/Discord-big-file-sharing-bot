@@ -26,12 +26,26 @@ if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY
         file_put_contents("./tmp", "ulfile()");
 
         http_response_code(200);
-        $returnArray = json_encode((array(
-            'type' => InteractionResponseType::CHANNEL_MESSAGE_WITH_SOURCE,
-            'data' => array(
-                'content' => "aaaaa"
+        // $returnArray = json_encode((array(
+        //     'type' => InteractionResponseType::CHANNEL_MESSAGE_WITH_SOURCE,
+        //     'data' => array(
+        //         'content' => "aaaaa"
+        //     )
+        // )));
+
+        $returnArray = json_encode(array(
+            "http" => array(
+                "method" => "POST",
+                "content" => array(
+                    "type" => InteractionResponseType::CHANNEL_MESSAGE_WITH_SOURCE,
+                    "data" => array(
+                        "content" => "aaa"
+                    )
+                )
             )
-        )));
+        ));
+
+        echo $returnArray;
 
         file_put_contents("./tmp", $returnArray);
 
