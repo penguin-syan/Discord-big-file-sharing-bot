@@ -13,9 +13,16 @@ $postData = file_get_contents('php://input');
 
 $filename = './files/dump.tmp';
 //file_put_contents($filename, json_decode(($postData)));
-file_put_contents($filename, array(
-  'type' => 'test'
-));
+// file_put_contents($filename, array(
+//   'type' => 'test'
+//));
+
+
+$data = json_decode($postData, true);
+$fp = fopen($filename, 'a');
+fwrite($fp, $data);
+fclose($fp);
+
 
 if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY)) {
     echo json_encode(array(
