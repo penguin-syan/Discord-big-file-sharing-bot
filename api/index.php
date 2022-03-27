@@ -30,6 +30,7 @@ fclose($fp);
 if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY)) {
     switch ($data['data']['name']) {
     case 'ulfile':
+        echo "https://bfs-bot.dev.penguin-syan.tokyo/cgi/";
         break;
     default:
         echo json_encode(array(
