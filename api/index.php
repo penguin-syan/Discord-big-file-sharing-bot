@@ -20,7 +20,9 @@ $filename = './files/dump.tmp';
 
 $data = json_decode($postData, true);
 $fp = fopen($filename, 'a');
-fwrite($fp, $data);
+foreach($data as $key => $value){
+  fwrite($fp, $key.":".$value.",");
+}
 fclose($fp);
 
 
