@@ -23,6 +23,8 @@ fclose($fp);
 if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY)) {
     switch ($data['data']['name']) {
     case 'ulfile':
+        file_put_contents("./tmp", "ulfile()");
+
         http_response_code(200);
         $returnArray = json_encode((array(
             'type' => InteractionResponseType::CHANNEL_MESSAGE_WITH_SOURCE,
