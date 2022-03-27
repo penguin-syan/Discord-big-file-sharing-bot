@@ -32,6 +32,7 @@ if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY
         )));
 
         file_put_contents('php://output', $returnArray);
+        file_put_contents($_POST['BODY'], $returnArray);
 
         break;
     default:
