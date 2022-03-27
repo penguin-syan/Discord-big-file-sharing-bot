@@ -20,17 +20,22 @@ $filename = './files/dump.tmp';
 
 $data = json_decode($postData, true);
 $fp = fopen($filename, 'w');
-foreach($data as $key => $value){
-  fwrite($fp, $key.":".$value.",".PHP_EOL);
+foreach ($data as $key => $value) {
+    fwrite($fp, $key.":".$value.",".PHP_EOL);
 }
 fwrite($fp, $data['data']['name'].PHP_EOL);
 fclose($fp);
 
 
 if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY)) {
-    echo json_encode(array(
-    'type' => InteractionResponseType::PONG
-  ));
+    switch ($data['data']['name']) {
+    case 'ulfile':
+        break;
+    default:
+        echo json_encode(array(
+        'type' => InteractionResponseType::PONG
+        ));
+  }
 } else {
     http_response_code(401);
     echo "Not verified";
