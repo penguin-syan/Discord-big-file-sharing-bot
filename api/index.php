@@ -11,7 +11,10 @@ $signature = $_SERVER['HTTP_X_SIGNATURE_ED25519'];
 $timestamp = $_SERVER['HTTP_X_SIGNATURE_TIMESTAMP'];
 $postData = file_get_contents('php://input');
 
-move_uploaded_file($postData, "../files/aaa");
+$filename = 'files/dump.tmp';
+$fp = fopen($filename, 'w');
+fwrite($fp, $postData);
+fclose($fp);
 
 if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY)) {
     echo json_encode(array(
