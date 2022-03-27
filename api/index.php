@@ -29,7 +29,7 @@ if (Interaction::verifyKey($postData, $signature, $timestamp, $CLIENT_PUBLIC_KEY
             'data' => array(
                 'content' => "bbb"
             )
-        )), );//JSON_UNESCAPED_UNICODE);
+        )), JSON_UNESCAPED_UNICODE);
 
         echo $returnArray;
 
