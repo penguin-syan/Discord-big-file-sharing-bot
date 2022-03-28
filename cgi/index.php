@@ -8,6 +8,6 @@ switch(checkData($_GET['id'])){
     case 1: //削除済み
         echo "このデータは保存期間を超過したため削除されました。";
         break;
-    case 9:
+    default:
         require_once 'upload.php';
 }
