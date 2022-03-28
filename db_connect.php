@@ -7,8 +7,8 @@ require_once "INPUT PASS OF db_info.php";
  *
  * 引数として渡したコマンドを実行し、その結果を帰り値とする。
  *
- * @param string $sqlCommand DB上で実行するコマンド
- * @return object 実行結果
+ * @param $sqlCommand DB上で実行するコマンド
+ * @return 実行結果
  */
 function mysqlCommand($sqlCommand)
 {
