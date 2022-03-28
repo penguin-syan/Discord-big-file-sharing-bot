@@ -27,9 +27,10 @@ function mysqlCommand($sqlCommand)
 function checkData($id)
 {
     $command = "select count(del) as cnt from fileinfo where id = '".$id."';";
-    //$sqlResult = mysqlCommand($command);
-    $sqlResult = mysqlCommand("select * from fileinfo;");
+    $sqlResult = mysqlCommand($command);
+    //$sqlResult = mysqlCommand("select * from fileinfo;");
 
+    return 9;
     if (isset($sqlResult)) {
         // echo print_r($sqlResult);
         // foreach ($sqlResult as $value) {
