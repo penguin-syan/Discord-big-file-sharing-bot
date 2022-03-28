@@ -24,7 +24,8 @@ function mysqlCommand($sqlCommand){
  * データの有無を確認する
  */
 function checkData($id){
-    $sqlResult = mysqlCommand("select del from fileinfo where id = ".$id.";");
+    $command = "select del from fileinfo where id = ".$id.";";
+    $sqlResult = mysqlCommand($command);
 
     foreach($sqlResult as $value){
         return $value['del'];

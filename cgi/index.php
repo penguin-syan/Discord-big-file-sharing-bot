@@ -2,6 +2,7 @@
 require_once '../db_connect.php';
 
 //switch(checkData($_GET['id'])){
+echo $_GET['id'];
 switch(9){
     case 0: //アップロード済み
         require_once 'view.php';
