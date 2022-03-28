@@ -1,7 +1,7 @@
 <?php
 require_once '../db_connect.php';
 
-"select count(del) as cnt from fileinfo where id = ".$_GET['id'].";";
+echo "select count(del) as cnt from fileinfo where id = ".$_GET['id'].";";
 //switch(checkData($_GET['id'])){
 switch(9){
     case 0: //アップロード済み
