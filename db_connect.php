@@ -28,10 +28,9 @@ function checkData($id)
 {
     $command = "select count(*) as cnt from fileinfo where id = '".$id."';";
     $command = "select * from fileinfo;";
-    //echo $command;
     $sqlResult = mysqlCommand($command);
 
-    //echo print_r($sqlResult);
+    echo print_r($sqlResult);
     if (isset($sqlResult)) {
         // foreach ($sqlResult as $value) {
         //     return $value['cnt'];
