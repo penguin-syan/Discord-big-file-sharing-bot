@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8');
+require_once "INPUT PASS OF db_info.php";
 
 /**
  * SQL文実行用の関数
@@ -7,21 +8,26 @@ header('Content-Type: text/html; charset=UTF-8');
  * 引数として渡したコマンドを実行し、その結果を帰り値とする。
  * 
  * @param string $sqlCommand DB上で実行するコマンド
- * @return string 実行結果
+ * @return object 実行結果
  */
-function mysqlCommand(string $sqlCommand){
+function mysqlCommand($sqlCommand){
     extract($GLOBALS);
 
     $db = new PDO($db_info, $db_id, $db_pass);
     $sql = $db->prepare($sqlCommand);
-    $sql -> execute();
+    $sql->execute();
 
     return $sql;
 }
 
 /**
- * 
+ * データの有無を確認する
  */
-function checkData(){
-    
+function checkData($id){
+    $sqlResult = mysqlCommand("select del from fileinfo where id = ".$id.";");
+
+    foreach($sqlResult as $value){
+        return $value['del'];
+    }
+    return 9;
 }
