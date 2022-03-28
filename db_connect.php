@@ -30,8 +30,8 @@ function checkData($id)
     echo $command;
     $sqlResult = mysqlCommand($command);
 
+    echo print_r($sqlResult);
     if (isset($sqlResult)) {
-        echo print_r($sqlResult);
         // foreach ($sqlResult as $value) {
         //     return $value['cnt'];
         // }
