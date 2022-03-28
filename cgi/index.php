@@ -1,5 +1,5 @@
 <?php
-require_once 'db_connect.php';
+require_once '../db_connect.php';
 
 switch(checkData($_GET['id'])){
     case 0: //アップロード済み
