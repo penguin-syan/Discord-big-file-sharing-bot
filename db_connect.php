@@ -31,7 +31,7 @@ function checkData($id)
     $sqlResult = mysqlCommand($command);
 
     if (isset($sqlResult)) {
-        // echo print_r($sqlResult);
+        echo print_r($sqlResult);
         // foreach ($sqlResult as $value) {
         //     return $value['cnt'];
         // }
