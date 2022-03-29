@@ -31,7 +31,11 @@ function checkData($id)
 
     if (isset($sqlResult)) {
         foreach ($sqlResult as $value) {
-            print_r($value);
+            if($value['cnt'] == 0){
+                return 2;
+            }else{
+                return 0;
+            }
         }
         return 0;
     } else {
