@@ -10,6 +10,7 @@ if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
          break;
       default:
          echo "このファイル形式はアップロードが許可されていません。";
+         echo mime_content_type($_FILES['upfile']['tmp_name']);
          return;
    }
 
