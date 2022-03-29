@@ -1,6 +1,7 @@
 <?php
 const FILEPASS = "";
 
+echo $_FILES['upfile']['error'];
 if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
     $filetype;
     switch (mime_content_type($_FILES['upfile']['tmp_name'])) {
