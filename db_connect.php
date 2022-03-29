@@ -45,7 +45,8 @@ function checkData($id)
 
 
 function addData($id, $filetype, $filename){
-    echo "insert into fileinfo values('".$id."', '".date("Y-m-d", strtotime("+7 day"))."', ".$filetype.", '".$filename."', 0);";
+    $command = "insert into fileinfo values('".$id."', '".date("Y-m-d", strtotime("+7 day"))."', ".$filetype.", '".$filename."', 0);";
+    //$sqlResult = mysqlCommand($command);
 }
 
 
