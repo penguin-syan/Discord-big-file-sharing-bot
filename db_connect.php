@@ -30,11 +30,10 @@ function checkData($id)
     $command = "select * from fileinfo;";
     $sqlResult = mysqlCommand($command);
 
-    echo print_r($sqlResult);
     if (isset($sqlResult)) {
-        // foreach ($sqlResult as $value) {
-        //     return $value['cnt'];
-        // }
+        foreach ($sqlResult as $value) {
+            print_r($value);
+        }
         return 0;
     } else {
         return 9;
