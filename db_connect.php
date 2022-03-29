@@ -42,3 +42,16 @@ function checkData($id)
         return 9;
     }
 }
+
+
+function addData(){
+    
+}
+
+
+function getData($id){
+    $command = "select * from fileinfo where id = '".$id."';";
+    $sqlResult = mysqlCommand($command);
+
+    
+}

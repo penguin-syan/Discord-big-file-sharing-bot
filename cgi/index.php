@@ -10,6 +10,7 @@ switch(checkData($_GET['id'])){
         break;
     case 2:
         require_once 'upload.php';
+        break;
     default:
         echo "ERROE in ".__LINE__;
 }
