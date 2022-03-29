@@ -27,7 +27,6 @@ function mysqlCommand($sqlCommand)
 function checkData($id)
 {
     $command = "select count(*) as cnt from fileinfo where id = '".$id."';";
-    $command = "select * from fileinfo;";
     $sqlResult = mysqlCommand($command);
 
     if (isset($sqlResult)) {
