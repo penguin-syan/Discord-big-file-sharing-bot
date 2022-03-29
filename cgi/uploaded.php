@@ -24,8 +24,8 @@ if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
    }
 
     $upload_file = date("Ymd-His").$_FILES['upfile']['name'];
-    addData($_GET['id'], $filetype, $upload_file);
-    
+    //addData($_GET['id'], $filetype, $upload_file);
+
     if (move_uploaded_file($_FILES["upfile"]["tmp_name"], FILEPASS.$upload_file)) {
         chmod(FILEPASS.$upload_file, 0644);
         echo "ファイルをアップロードしました。";
