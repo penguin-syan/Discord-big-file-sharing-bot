@@ -1,5 +1,5 @@
 <?php
-define("FILEPASS", "");
+const FILEPASS = "";
 
 if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
     $filetype;
