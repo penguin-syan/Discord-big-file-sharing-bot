@@ -8,7 +8,7 @@ if ($sqlResult['del'] == 0) {
     switch ($sqlResult['filetyle']) {
         case 1:
             echo "img";
-            echo "<img src='".$filepass.readfile($sqlResult['filename']).".>";
+            echo "<img src='".readfile($filepass.$sqlResult['filename']).".>";
             break;
         case 2:
             echo "mov";
