@@ -22,7 +22,13 @@ function mysqlCommand($sqlCommand)
 }
 
 /**
- * データの有無を確認する
+ * DB上のデータ有無を確認する
+ * 
+ * idを引数として渡すことで、
+ * データベース上にデータが登録されているか確認する。
+ * 
+ * @param $id 検索するデータのID
+ * @return int データの状態ID
  */
 function checkData($id)
 {
@@ -32,14 +38,13 @@ function checkData($id)
     if (isset($sqlResult)) {
         foreach ($sqlResult as $value) {
             if($value['cnt'] == 0){
-                return 2;
+                return 2; //not found.
             }else{
-                return 0;
+                return 0; //find file.
             }
         }
-        return 0;
     } else {
-        return 9;
+        return 9; //error.
     }
 }
 
@@ -54,5 +59,15 @@ function getData($id){
     $command = "select * from fileinfo where id = '".$id."';";
     $sqlResult = mysqlCommand($command);
 
-    
+    return $sqlResult;
+}
+
+function removeData(){
+    $command = "select * from fileinfo where removedate < (select curdate())";
+    $sqlResult = mysqlCommand($command);
+
+    foreach($sqlResult as $value){
+        echo $value['id'];
+        echo "rm ".$value['filename'];
+    }
 }
