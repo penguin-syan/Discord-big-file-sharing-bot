@@ -23,10 +23,10 @@ function mysqlCommand($sqlCommand)
 
 /**
  * DB上のデータ有無を確認する
- * 
+ *
  * idを引数として渡すことで、
  * データベース上にデータが登録されているか確認する。
- * 
+ *
  * @param $id 検索するデータのID
  * @return int データの状態ID
  */
@@ -37,9 +37,9 @@ function checkData($id)
 
     if (isset($sqlResult)) {
         foreach ($sqlResult as $value) {
-            if($value['cnt'] == 0){
+            if ($value['cnt'] == 0) {
                 return 2; //not found.
-            }else{
+            } else {
                 return 0; //find file.
             }
         }
@@ -49,24 +49,27 @@ function checkData($id)
 }
 
 
-function addData($id, $filetype, $filename){
+function addData($id, $filetype, $filename)
+{
     $command = "insert into fileinfo values('".$id."', '".date("Y-m-d", strtotime("+7 day"))."', ".$filetype.", '".$filename."', 0);";
     $sqlResult = mysqlCommand($command);
 }
 
 
-function getData($id){
+function getData($id)
+{
     $command = "select * from fileinfo where id = '".$id."';";
     $sqlResult = mysqlCommand($command);
 
     return $sqlResult;
 }
 
-function removeData(){
+function removeData()
+{
     $command = "select * from fileinfo where removedate < (select curdate())";
     $sqlResult = mysqlCommand($command);
 
-    foreach($sqlResult as $value){
+    foreach ($sqlResult as $value) {
         echo $value['id'];
         echo "rm ".$value['filename'];
     }
