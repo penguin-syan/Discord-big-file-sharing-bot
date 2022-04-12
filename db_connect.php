@@ -10,8 +10,7 @@ require_once "INPUT PASS OF db_info.php";
  * @param $sqlCommand DB上で実行するコマンド
  * @return 実行結果
  */
-function mysqlCommand($sqlCommand)
-{
+function mysqlCommand($sqlCommand){
     extract($GLOBALS);
 
     $db = new PDO($db_info, $db_id, $db_pass);
@@ -30,8 +29,7 @@ function mysqlCommand($sqlCommand)
  * @param $id 検索するデータのID
  * @return int データの状態ID
  */
-function checkData($id)
-{
+function checkData($id){
     $command = "select count(*) as cnt from fileinfo where id = '".$id."';";
     $sqlResult = mysqlCommand($command);
 
@@ -49,23 +47,20 @@ function checkData($id)
 }
 
 
-function addData($id, $filetype, $filename)
-{
+function addData($id, $filetype, $filename){
     $command = "insert into fileinfo values('".$id."', '".date("Y-m-d", strtotime("+7 day"))."', ".$filetype.", '".$filename."', 0);";
     $sqlResult = mysqlCommand($command);
 }
 
 
-function getData($id)
-{
+function getData($id){
     $command = "select * from fileinfo where id = '".$id."';";
     $sqlResult = mysqlCommand($command);
 
     return $sqlResult;
 }
 
-function removeData()
-{
+function removeData(){
     $command = "select * from fileinfo where removedate < (select curdate())";
     $sqlResult = mysqlCommand($command);
 
