@@ -1,10 +1,10 @@
 <?php
 require_once '../db_connect.php';
 
-$sqlResult = getData($_GET['id']);
-$sqlResult = $sqlResult->fetch(PDO::FETCH_BOTH);
+//$sqlResult = getData($_GET['id']);
+//$sqlResult = $sqlResult->fetch(PDO::FETCH_BOTH);
 
-print_r($sqlResult);
+//print_r($sqlResult);
 
 // if ($sqlResult['del'] == 0) {
 //     switch ($sqlResult['filetyle']) {
