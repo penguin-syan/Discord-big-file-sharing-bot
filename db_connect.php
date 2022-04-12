@@ -35,6 +35,8 @@ function checkData($id)
     $command = "select count(*) as cnt from fileinfo where id = '".$id."';";
     $sqlResult = mysqlCommand($command);
 
+    return 2;
+
     if (isset($sqlResult)) {
         foreach ($sqlResult as $value) {
             if ($value['cnt'] == 0) {
