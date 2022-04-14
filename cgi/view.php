@@ -4,14 +4,15 @@ require_once '../db_connect.php';
 $sqlResult = getData($_GET['id']);
 $sqlResult = $sqlResult->fetch(PDO::FETCH_BOTH);
 
-print_r($sqlResult);
+//print_r($sqlResult);
 
 if ($sqlResult['del'] == 0) {
     switch ($sqlResult['filetype']) {
         case 1:
-            echo "img";
-            echo "<img src='".$filepass.$sqlResult['filename']."'>";
-            //readfile($filepass.$sqlResult['filename']);
+            //echo "img";
+            //echo "<img src='".$filepass.$sqlResult['filename']."'>";
+            header('Content-Type: image/png');
+            readfile($filepass.$sqlResult['filename']);
             break;
         case 2:
             echo "mov";
