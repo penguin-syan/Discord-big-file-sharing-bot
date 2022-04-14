@@ -11,6 +11,7 @@ if ($sqlResult['del'] == 0) {
         case 1:
             echo "img";
             //echo "<img src='".readfile($filepass.$sqlResult['filename']).".>";
+            header('Content-type: image/png');
             readfile($filepass.$sqlResult['filename']);
             break;
         case 2:
