@@ -7,7 +7,7 @@ $sqlResult = $sqlResult->fetch(PDO::FETCH_BOTH);
 print_r($sqlResult);
 
 if ($sqlResult['del'] == 0) {
-    switch ($sqlResult['filetyle']) {
+    switch ($sqlResult['filetype']) {
         case 1:
             echo "img";
             //echo "<img src='".readfile($filepass.$sqlResult['filename']).".>";
