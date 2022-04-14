@@ -10,7 +10,7 @@ if ($sqlResult['del'] == 0) {
     switch ($sqlResult['filetype']) {
         case 1:
             echo "img";
-            //echo "<img src='".readfile($filepass.$sqlResult['filename']).".>";
+            echo "<img src='".$filepass.$sqlResult['filename'].".>";
             header('Content-type: image/png');
             readfile($filepass.$sqlResult['filename']);
             break;
