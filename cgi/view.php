@@ -24,7 +24,7 @@ if ($sqlResult['del'] == 0) {
             header('Content-Type: video/mp4');
             break;
         case 6:
-            header('application/pdf');
+            header('Content-Type: application/pdf');
             break;
         default:
             echo "ERROR: ".__LINE__;
