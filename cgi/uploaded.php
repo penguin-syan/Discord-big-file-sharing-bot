@@ -8,16 +8,22 @@ if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
     $filetype = 0;
     switch (mime_content_type($_FILES['upfile']['tmp_name'])) {
         case "image/png":
+            $filetype = 1;
+            break;
         case "image/jpeg":
+            $filetype = 2;
+            break;
         case "image/gif":
-            $filetype = 1; //img
+            $filetype = 3;
             break;
         case "video/quicktime":
+            $filetype = 4;
+            break;
         case "video/mp4":
-            $filetype = 2; //mov
+            $filetype = 5;
             break;
         case "application/pdf":
-            $filetype = 3; //doc
+            $filetype = 6;
             break;
         default:
             echo "このファイル形式はアップロードが許可されていません。<br>";
