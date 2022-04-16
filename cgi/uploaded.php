@@ -36,6 +36,7 @@ if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
 
     if (move_uploaded_file($_FILES["upfile"]["tmp_name"], FILEPASS.$upload_file)) {
         if(chmod(FILEPASS.$upload_file, 0644)){
+            echo "<meta http-equiv='refresh' content='5; url=https://bfs-bot.dev.penguin-syan.tokyo/cgi/?id=".$_POST['id']."'>";
             echo "ファイルをアップロードしました。";
         }else{
             echo "ファイルをアップロードしました。<br>";
