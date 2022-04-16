@@ -3,7 +3,6 @@ require_once '../db_connect.php';
 
 const FILEPASS = "";
 
-echo $_FILES['upfile']['error'];
 if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
     $filetype = 0;
     switch (mime_content_type($_FILES['upfile']['tmp_name'])) {
@@ -30,8 +29,6 @@ if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
             echo "ERROR TYPE: ".mime_content_type($_FILES['upfile']['tmp_name']);
             return;
    }
-
-   echo "=====";
 
     $upload_file = date("Ymd-His").$_FILES['upfile']['name'];
     addData($_POST['id'], $filetype, $upload_file);
