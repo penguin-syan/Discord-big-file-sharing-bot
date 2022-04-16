@@ -63,7 +63,7 @@ function getData($id){
 function removeData(){
     extract($GLOBALS);
 
-    $command = "select * from fileinfo where removedate < (select curdate())";
+    $command = "select * from fileinfo where removedate < (select curdate()) and del = 0";
     $sqlResult = mysqlCommand($command);
 
     foreach ($sqlResult as $value) {
