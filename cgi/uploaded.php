@@ -35,8 +35,12 @@ if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
     addData($_POST['id'], $filetype, $upload_file);
 
     if (move_uploaded_file($_FILES["upfile"]["tmp_name"], FILEPASS.$upload_file)) {
-        chmod(FILEPASS.$upload_file, 0644);
-        echo "ファイルをアップロードしました。";
+        if(chmod(FILEPASS.$upload_file, 0644)){
+            echo "ファイルをアップロードしました。";
+        }else{
+            echo "ファイルをアップロードしました。<br>";
+            echo "ERROR: ".__LINE__;
+        }
     } else {
         echo "ファイルをアップロードできません。";
         return;
