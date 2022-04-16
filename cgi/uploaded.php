@@ -1,8 +1,6 @@
 <?php
 require_once '../db_connect.php';
 
-const FILEPASS = "";
-
 if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
     $filetype = 0;
     switch (mime_content_type($_FILES['upfile']['tmp_name'])) {
@@ -33,8 +31,8 @@ if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
     $upload_file = date("Ymd-His").$_FILES['upfile']['name'];
     addData($_POST['id'], $filetype, $upload_file);
 
-    if (move_uploaded_file($_FILES["upfile"]["tmp_name"], FILEPASS.$upload_file)) {
-        if(chmod(FILEPASS.$upload_file, 0644)){
+    if (move_uploaded_file($_FILES["upfile"]["tmp_name"], $filepass.$upload_file)) {
+        if(chmod($filepass.$upload_file, 0644)){
             echo "<meta http-equiv='refresh' content='5; url=https://bfs-bot.penguin-syan.tokyo/cgi/?id=".$_POST['id']."'>";
             echo "ファイルをアップロードしました。<br>5秒後に自動的に画面が切り替わります。";
         }else{
