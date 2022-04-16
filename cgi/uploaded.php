@@ -31,15 +31,17 @@ if (is_uploaded_file($_FILES["upfile"]["tmp_name"])) {
             return;
    }
 
+   echo "=====";
+
     $upload_file = date("Ymd-His").$_FILES['upfile']['name'];
     addData($_POST['id'], $filetype, $upload_file);
 
     if (move_uploaded_file($_FILES["upfile"]["tmp_name"], FILEPASS.$upload_file)) {
         if(chmod(FILEPASS.$upload_file, 0644)){
             echo "<meta http-equiv='refresh' content='5; url=https://bfs-bot.dev.penguin-syan.tokyo/cgi/?id=".$_POST['id']."'>";
-            echo "ファイルをアップロードしました。";
+            echo "ファイルをアップロードしました。<br>5秒後に自動的に画面が切り替わります。";
         }else{
-            echo "ファイルをアップロードしました。<br>";
+            echo "ファイルをアップロードしました。<br>5秒後に自動的に画面が切り替わります。<br>";
             echo "ERROR: ".__LINE__;
         }
     } else {
