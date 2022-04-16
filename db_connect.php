@@ -65,7 +65,8 @@ function removeData(){
     $sqlResult = mysqlCommand($command);
 
     foreach ($sqlResult as $value) {
-        echo $value['id'];
-        echo "rm ".$value['filename'];
+        $command2 = "update fileinfo set del = 1 where id ='".$value['id']."'";
+        $sqlResult2 = mysqlCommand($command2);
+        exec("rm ".$value['filename']);
     }
 }
