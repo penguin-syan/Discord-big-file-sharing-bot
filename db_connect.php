@@ -61,6 +61,8 @@ function getData($id){
 }
 
 function removeData(){
+    extract($GLOBALS);
+
     $command = "select * from fileinfo where removedate < (select curdate())";
     $sqlResult = mysqlCommand($command);
 
